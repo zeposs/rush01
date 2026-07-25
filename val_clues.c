@@ -6,7 +6,7 @@
 /*   By: zernest <zernest@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 13:19:39 by mkrishan          #+#    #+#             */
-/*   Updated: 2026/07/25 19:33:52 by zernest          ###   ########.fr       */
+/*   Updated: 2026/07/25 21:33:06 by zernest          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 int	valid_clues(int row, int col, int arr[SIZE],
 		int clues[SIZE * SIZE], int grid[SIZE][SIZE])
 {
-	/* Row just completed */
 	if (col == SIZE - 1)
 	{
 		rows_from_grid(row, TRUE, arr, grid);
@@ -27,7 +26,6 @@ int	valid_clues(int row, int col, int arr[SIZE],
 			return (0);
 	}
 
-	/* Column just completed */
 	if (row == SIZE - 1)
 	{
 		cols_from_grid(col, TRUE, arr, grid);
