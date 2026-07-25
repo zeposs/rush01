@@ -23,7 +23,6 @@ int	backtrack(int grid[SIZE][SIZE], int row, int col,
 
 	if (row == SIZE)
 		return (1);
-
 	next_row = row;
 	next_col = col + 1;
 	if (next_col == SIZE)
@@ -31,20 +30,17 @@ int	backtrack(int grid[SIZE][SIZE], int row, int col,
 		next_col = 0;
 		next_row++;
 	}
-
 	value = 1;
 	while (value <= SIZE)
 	{
 		if (check_dup(row, col, value, grid))
 		{
 			grid[row][col] = value;
-
 			if (valid_clues(row, col, arr, clues, grid))
 			{
 				if (backtrack(grid, next_row, next_col, arr, clues))
 					return (1);
 			}
-
 			grid[row][col] = 0;
 		}
 		value++;
