@@ -3,35 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   val_clues.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jia-xcho <jia-xcho@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: zernest <zernest@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 13:19:39 by mkrishan          #+#    #+#             */
-/*   Updated: 2026/07/25 18:43:28 by jia-xcho         ###   ########.fr       */
+/*   Updated: 2026/07/25 19:33:52 by zernest          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rush01.h"
 
-int	valid_clues(int row, int col, int arr[SIZE], int clues[SIZE * SIZE], int grid[SIZE][SIZE])
+int	valid_clues(int row, int col, int arr[SIZE],
+		int clues[SIZE * SIZE], int grid[SIZE][SIZE])
 {
-	int	i;
+	/* Row just completed */
+	if (col == SIZE - 1)
+	{
+		rows_from_grid(row, TRUE, arr, grid);
+		if (check_visible(arr) != clues[8 + row])
+			return (0);
 
-	i = 0;
-	while (i < SIZE)
+		rows_from_grid(row, FALSE, arr, grid);
+		if (check_visible(arr) != clues[12 + row])
+			return (0);
+	}
+
+	/* Column just completed */
+	if (row == SIZE - 1)
 	{
 		cols_from_grid(col, TRUE, arr, grid);
-		if (clues[i] != 0 && check_visible(arr) != clues[i])
+		if (check_visible(arr) != clues[col])
 			return (0);
+
 		cols_from_grid(col, FALSE, arr, grid);
-		if (clues[i + SIZE] != 0 && check_visible(arr) != clues[i + SIZE])
+		if (check_visible(arr) != clues[4 + col])
 			return (0);
-		rows_from_grid(row, TRUE, arr, grid);
-		if (clues[i + (SIZE * 2)] != 0 && check_visible(arr) != clues[i + (SIZE * 2)])
-			return (0);
-		rows_from_grid(row, FALSE, arr, grid);
-		if (clues[i + (SIZE * 3)] != 0 && check_visible(arr) != clues[i + (SIZE * 3)])
-			return (0);
-		i++;
 	}
+
 	return (1);
 }
