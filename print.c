@@ -3,22 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   print.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkrishan <mkrishan@student.42kl.edu.m      +#+  +:+       +#+        */
+/*   By: zernest <zernest@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:35:00 by mkrishan          #+#    #+#             */
-/*   Updated: 2026/07/25 11:51:51 by mkrishan         ###   ########.fr       */
+/*   Updated: 2026/07/25 17:04:59 by zernest          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include <unistd.h>
 
-void	display_grid(int **grid)
+#include "rush01.h"
+
+void	display_grid(int grid[SIZE][SIZE])
 {
 	int	row;
 	int	col;
 	char	c;
 
 	row = 0;
-	while (row < SIZE)i
+	while (row < SIZE)
 	{
 		col = 0;
 		while (col < SIZE)

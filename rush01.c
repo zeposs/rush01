@@ -3,25 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   rush01.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jia-xcho <jia-xcho@student.42kl.edu.my>    +#+  +:+       +#+        */
+/*   By: zernest <zernest@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 17:08:18 by jia-xcho          #+#    #+#             */
-/*   Updated: 2026/07/24 11:40:39 by jia-xcho         ###   ########.fr       */
+/*   Updated: 2026/07/25 17:08:36 by zernest          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-#define TRUE 1
-#define FALSE 0
-#define SIZE 4
+#include "rush01.h"
 
 //Set size of matrix
-int grid[SIZE][SIZE];
-int clues[SIZE * SIZE];
+
 
 //checking if the rows/column has duplicates
-int check_dup(int row, int col, int nbr)
+int check_dup(int row, int col, int nbr, int grid[SIZE][SIZE])
 {
     int i = 0;
     while (i < SIZE) 
@@ -36,7 +31,7 @@ int check_dup(int row, int col, int nbr)
 }
 
 //plucking rows out from grid
-void rows_from_grid(int row, int view_point, int arr[SIZE])
+void rows_from_grid(int row, int view_point, int arr[SIZE], int grid[SIZE][SIZE])
 {
     int i = 0;
     while (i < SIZE)
@@ -54,7 +49,7 @@ void rows_from_grid(int row, int view_point, int arr[SIZE])
 }
 
 //plucking columns out from grid
-void cols_from_grid(int col, int view_point, int arr[SIZE])
+void cols_from_grid(int col, int view_point, int arr[SIZE], int grid[SIZE][SIZE])
 {
     int i = 0;
     while (i < SIZE)
@@ -123,13 +118,16 @@ int check_valid_argv(char *argv, int *clues)
 
 int main(int argc, char *argv[])
 {
-    int clues[16];
+    int clues[SIZE * SIZE];
+    int grid[SIZE][SIZE];
+    int arr[SIZE];
+
     if (argc == 2 && check_valid_argv(argv[1], clues))
-    {
-        write(1, "Pass", 4);
-        return (0);
-    }
+        write(1, "Pass\n\n", 6);
     else
         write(1, "Error", 5);
+
+    backtrack(grid, 0, 0, arr, clues);
+    display_grid(grid);
     return (0);
 }
