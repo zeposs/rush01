@@ -6,7 +6,7 @@
 /*   By: jia-xcho <jia-xcho@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 17:08:18 by jia-xcho          #+#    #+#             */
-/*   Updated: 2026/07/25 18:43:47 by jia-xcho         ###   ########.fr       */
+/*   Updated: 2026/07/25 18:48:51 by jia-xcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ int check_valid_argv(char *argv, int *clues)
         return (0);
     return (1);
 }
-void(init_grid(int grid[SIZE][SIZE]))
+void    init_grid(int grid[SIZE][SIZE])
 {
     int row;
     int col;
