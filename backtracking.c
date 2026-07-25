@@ -44,7 +44,6 @@ int	backtrack(int grid[SIZE][SIZE], int row, int col, int arr[SIZE], int clues[S
 			{
 				if (next_col == 0)
 				{
-					printf("printf: %d ", valid_clues(row, col, arr, clues, grid));
 					if (valid_clues(row, col, arr, clues, grid))
 						return (1);
 				}

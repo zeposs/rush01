@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rush01.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zernest <zernest@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: jia-xcho <jia-xcho@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 17:08:18 by jia-xcho          #+#    #+#             */
-/*   Updated: 2026/07/25 17:08:36 by zernest          ###   ########.fr       */
+/*   Updated: 2026/07/25 18:43:47 by jia-xcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,19 +115,39 @@ int check_valid_argv(char *argv, int *clues)
         return (0);
     return (1);
 }
+void(init_grid(int grid[SIZE][SIZE]))
+{
+    int row;
+    int col;
+
+    row = 0;
+    while (row < SIZE)
+    {
+        col = 0;
+        while (col < SIZE)
+        {
+            grid[row][col] = 0;
+            col++;
+        }
+        row++;
+    }
+}
 
 int main(int argc, char *argv[])
 {
     int clues[SIZE * SIZE];
     int grid[SIZE][SIZE];
     int arr[SIZE];
-
+    
+    init_grid(grid);
     if (argc == 2 && check_valid_argv(argv[1], clues))
         write(1, "Pass\n\n", 6);
     else
         write(1, "Error", 5);
 
-    backtrack(grid, 0, 0, arr, clues);
-    display_grid(grid);
+    if (backtrack(grid, 0, 0, arr, clues))
+        display_grid(grid);
+    else
+        write(1, "Error", 5);
     return (0);
 }
