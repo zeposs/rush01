@@ -1,0 +1,20 @@
+backtrack(row, col)
+
+    if row == 4
+        return SUCCESS
+
+    calculate next_row and next_col
+
+    for value = 1 to 4
+
+        if value is allowed at (row, col)
+
+            board[row][col] = value
+
+            if backtrack(next_row, next_col)
+
+                return SUCCESS
+
+            board[row][col] = EMPTY
+
+    return FAILURE
