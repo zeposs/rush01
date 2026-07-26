@@ -6,7 +6,7 @@
 /*   By: zernest <zernest@student.42kl.edu.my>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 11:35:00 by mkrishan          #+#    #+#             */
-/*   Updated: 2026/07/25 17:04:59 by zernest          ###   ########.fr       */
+/*   Updated: 2026/07/26 13:51:28 by jia-xcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	display_grid(int grid[SIZE][SIZE])
 {
-	int	row;
-	int	col;
+	int		row;
+	int		col;
 	char	c;
 
 	row = 0;

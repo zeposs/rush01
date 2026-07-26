@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   valid_clues.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: zernest <zernest@student.42kl.edu.my>      +#+  +:+       +#+        */
+/*   By: jia-xcho <jia-xcho@student.42kl.edu.my>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/25 13:19:39 by mkrishan          #+#    #+#             */
-/*   Updated: 2026/07/25 21:52:56 by zernest          ###   ########.fr       */
+/*   Updated: 2026/07/26 14:46:35 by jia-xcho         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	rows_from_grid(int row, int view_point, int arr[SIZE], int grid[SIZE][SIZE]
 }
 
 //plucking columns out from grid
-void cols_from_grid(int col, int view_point, int arr[SIZE], int grid[SIZE][SIZE])
+void	cols_from_grid(int col, int view_point, int arr[SIZE], int grid[SIZE][SIZE])
 {
 	int	i;
 
